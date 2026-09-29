@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Aniruddha 🤍</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap');
+
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  background:#fff;
+  color:#071b45;
+  font-family:'Cormorant Garamond',Georgia,serif;
+}
+.page{
+  position:absolute; inset:0;
+  min-height:100svh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:28px 22px;
+  opacity:0; visibility:hidden; transform:translateX(35px) scale(.98);
+  transition:opacity .65s ease, transform .65s ease, visibility .65s;
+  overflow:hidden;
+}
+.page.active{opacity:1;visibility:visible;transform:translateX(0) scale(1)}
+.page.leaving{opacity:0;transform:translateX(-35px) scale(.98)}
+
+.hearts{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.heart{
+  position:absolute;top:-45px;
+  color:#fff;
+  text-shadow:0 0 3px #071b45,0 0 10px rgba(7,27,69,.22);
+  animation:fall linear forwards;
+  user-select:none;
+}
+@keyframes fall{
+  0%{transform:translate3d(0,-50px,0) rotate(0deg);opacity:0}
+  10%{opacity:.98}
+  100%{transform:translate3d(var(--drift),110vh,0) rotate(360deg);opacity:.85}
+}
+.glitter{
+  position:fixed;width:5px;height:5px;border-radius:50%;
+  background:#fff;box-shadow:0 0 7px 2px #071b45;
+  pointer-events:none;z-index:1000;opacity:.85;
+}
+.content{position:relative;z-index:2;text-align:center;max-width:760px}
+.script{font-family:'Great Vibes','Brush Script MT',cursive}
+h1,h2,p{margin:0}
+.navy{color:#071b45}
+.title{font-size:clamp(3.2rem,11vw,7rem);font-weight:400;line-height:.9}
+.subtitle{font-size:clamp(1.35rem,4vw,2rem);font-style:italic;margin-top:20px;letter-spacing:.04em}
+.small{font-size:clamp(1.05rem,3.4vw,1.45rem);line-height:1.5}
+.snake{
+  width:150px;height:150px;margin:0 auto 15px;
+  filter:drop-shadow(0 7px 9px rgba(7,27,69,.12));
+}
+.snake svg{width:100%;height:100%}
+.heart-divider{font-size:22px;letter-spacing:12px;margin:17px 0}
+.btn{
+  margin-top:28px;padding:13px 34px 14px;
+  background:#fff;border:1.5px solid #071b45;border-radius:999px;
+  color:#071b45;font:600 1.25rem 'Cormorant Garamond',serif;
+  cursor:pointer;box-shadow:0 5px 22px rgba(7,27,69,.12);
+  transition:.25s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 9px 28px rgba(7,27,69,.18)}
+.btn:active{transform:scale(.97)}
+.arrow{font-size:18px;margin-left:8px}
+
+.letter-wrap{perspective:1200px;width:min(680px,94vw);height:min(590px,74vh);position:relative}
+.envelope{
+  position:absolute;inset:0;background:#fff;border:1.5px solid #071b45;
+  border-radius:8px;box-shadow:0 16px 45px rgba(7,27,69,.12);
+  cursor:pointer;transition:transform .9s ease;z-index:5;
+}
+.envelope:before{
+  content:"";position:absolute;inset:14px;border:1px solid #071b45;
+  border-radius:5px;opacity:.5;
+}
+.flap{
+  position:absolute;top:0;left:0;width:100%;height:54%;
+  background:#fff;border-bottom:1.5px solid #071b45;
+  clip-path:polygon(0 0,100% 0,50% 82%);
+  transform-origin:top;transition:transform .9s ease;z-index:3;
+}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.seal{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+  font-size:34px;z-index:4;transition:.5s}
+.envelope.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.5)}
+.env-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.env-label .script{font-size:clamp(2.2rem,8vw,4rem)}
+.letter{
+  position:absolute;inset:8px;background:#fff;border:1px solid #071b45;
+  border-radius:7px;padding:38px 38px 30px;overflow:auto;
+  opacity:0;transform:translateY(20px);transition:opacity .7s .55s,transform .7s .55s;
+  z-index:2;text-align:left;
+}
+.envelope.open + .letter{opacity:1;transform:translateY(0);z-index:6}
+.letter::-webkit-scrollbar{width:5px}.letter::-webkit-scrollbar-thumb{background:#071b45;border-radius:10px}
+.letter-text{font-size:clamp(1.05rem,2.8vw,1.32rem);line-height:1.7;font-style:italic}
+.signature{text-align:right;margin-top:22px;font-size:clamp(1.5rem,5vw,2.3rem)}
+.to{text-align:right;font-size:1.1rem;margin-top:5px}
+.corner{position:absolute;font-size:20px}
+.c1{top:18px;left:22px}.c2{top:18px;right:22px}.c3{bottom:18px;left:22px}.c4{bottom:18px;right:22px}
+
+.final{font-size:clamp(1.7rem,5vw,3rem);line-height:1.5}
+.fade-note{margin-top:25px;font-size:1.1rem;font-style:italic}
+.back{position:absolute;bottom:18px;z-index:10;background:none;border:0;color:#071b45;font:italic 1rem 'Cormorant Garamond';cursor:pointer;opacity:.7}
+.hidden{display:none!important}
+
+@media(max-width:600px){
+  .page{padding:22px 16px}
+  .letter{padding:28px 22px}
+  .letter-wrap{height:74vh}
+  .snake{width:125px;height:125px}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="p1">
+  <div class="hearts" data-count="75"></div>
+  <div class="content">
+    <div class="snake">
+      <svg viewBox="0 0 180 180" aria-label="white snake">
+        <path d="M90 158 C35 153 31 112 73 95 C111 80 143 96 137 62 C133 39 104 31 83 45 C62 58 67 83 91 84 C111 85 121 72 113 59"
+          fill="none" stroke="#071b45" stroke-width="13" stroke-linecap="round"/>
+        <path d="M90 158 C35 153 31 112 73 95 C111 80 143 96 137 62 C133 39 104 31 83 45 C62 58 67 83 91 84 C111 85 121 72 113 59"
+          fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+        <path d="M110 58 C103 44 108 28 124 23 C140 18 154 28 153 42 C152 56 137 63 124 60 Z"
+          fill="#fff" stroke="#071b45" stroke-width="2"/>
+        <circle cx="132" cy="38" r="3" fill="#071b45"/>
+        <path d="M151 44 L166 48" stroke="#071b45" stroke-width="2" stroke-linecap="round"/>
+        <path d="M119 24 L114 12 M128 21 L130 8 M137 23 L144 12" stroke="#071b45" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="script title">hi Aniruddha...</div>
+    <div class="heart-divider">♡ ♡ ♡</div>
+    <p class="small">do u have a little moment???</p>
+    <p class="small">I'm not asking for more but just few minutes of yours...</p>
+    <button class="btn" onclick="go(2)">♡ YES <span class="arrow">→</span></button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="p2">
+  <div class="hearts" data-count="130"></div>
+  <div class="content">
+    <div class="script" style="font-size:clamp(3rem,10vw,6rem)">I'm sorry...</div>
+    <div class="heart-divider">♡</div>
+    <p class="subtitle">for everything that happened today</p>
+    <p class="subtitle">and from what happened for starting to till now 🤍</p>
+    <button class="btn" onclick="go(3)">continue →</button>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="p3">
+  <div class="hearts" data-count="35"></div>
+  <div class="content">
+    <div class="letter-wrap">
+      <div class="envelope" id="envelope" onclick="openLetter()">
+        <div class="flap"></div>
+        <div class="seal">♡</div>
+        <div class="env-label">
+          <div class="script">a little letter...</div>
+          <div>for you</div>
+          <div>♡</div>
+        </div>
+        <span class="corner c1">♡</span><span class="corner c2">♡</span>
+        <span class="corner c3">♡</span><span class="corner c4">♡</span>
+      </div>
+      <article class="letter" id="letter">
+        <span class="corner c1">♡</span><span class="corner c2">♡</span>
+        <span class="corner c3">♡</span><span class="corner c4">♡</span>
+        <div class="letter-text">
+          Ik u said koi naa...but i still wanted to say this once properlyyy...ik i was wrong todayyy...especially the way i talked to u.....shouted nd acted unnecessarilyyyy stubbornnn...u didn't deservee thatt...igot way too comfortable nd let my irritation come out on u...nd treat u acc to my mood..nd thats somethinn i genuinelyyy need to work onn..<br><br>
+          im not saying this so u'll say anything back..or make me feel better i just wanted to acknowledge that i hurt u nd im genuinely sorryyy for that..ill try to be more mindful of how i treat u especially when im annoyed..angry..or frustrated..<br><br>
+          just cuz u r safe enough for me to be completelyyy unfiltered with u...dosent mean u deserve my unfiltered anger... frustration or disrespect 🤍
+        </div>
+        <div class="signature script">~ Yashika</div>
+        <div class="to">♡ To Aniruddha</div>
+      </article>
+    </div>
+    <button class="btn hidden" id="nextBtn" onclick="go(4)">one last thing →</button>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="p4">
+  <div class="hearts" data-count="90"></div>
+  <div class="content">
+    <div class="script" style="font-size:clamp(3.5rem,12vw,7rem)">I mean it.</div>
+    <div class="heart-divider">♡ ✦ ♡</div>
+    <p class="final">I'm going to work on myself.<br>Not just say it. 🤍</p>
+    <p class="fade-note">Thank you for being patient with me.</p>
+    <div class="script" style="font-size:2.7rem;margin-top:35px">~ Yashika 🦚</div>
+  </div>
+</section>
+
+<script>
+let current=1;
+
+function makeHearts(container,count){
+  if(container.dataset.done) return;
+  container.dataset.done='1';
+  for(let i=0;i<count;i++){
+    const h=document.createElement('span');
+    h.className='heart';
+    h.textContent=Math.random()>.18?'♡':'♥';
+    h.style.left=(Math.random()*100)+'%';
+    h.style.fontSize=(12+Math.random()*25)+'px';
+    h.style.animationDuration=(4.5+Math.random()*6)+'s';
+    h.style.animationDelay=(Math.random()*4)+'s';
+    h.style.setProperty('--drift',(-80+Math.random()*160)+'px');
+    container.appendChild(h);
+  }
+}
+document.querySelectorAll('.hearts').forEach(x=>makeHearts(x,Number(x.dataset.count)));
+
+function go(n){
+  const old=document.getElementById('p'+current);
+  const next=document.getElementById('p'+n);
+  old.classList.remove('active');
+  old.classList.add('leaving');
+  setTimeout(()=>old.classList.remove('leaving'),700);
+  next.classList.add('active');
+  current=n;
+  if(n===2){
+    const box=next.querySelector('.hearts');
+    box.innerHTML='';
+    box.dataset.done='';
+    makeHearts(box,150);
+  }
+  if(n===4){
+    const box=next.querySelector('.hearts');
+    box.innerHTML='';
+    box.dataset.done='';
+    makeHearts(box,110);
+  }
+}
+
+function openLetter(){
+  const env=document.getElementById('envelope');
+  if(env.classList.contains('open')) return;
+  env.classList.add('open');
+  setTimeout(()=>document.getElementById('nextBtn').classList.remove('hidden'),1200);
+  // A fresh cascade of hearts every time the letter opens.
+  const box=document.querySelector('#p3 .hearts');
+  box.innerHTML=''; box.dataset.done='';
+  makeHearts(box,150);
+}
+
+// soft white/navy glitter cursor trail
+let last=0;
+document.addEventListener('mousemove',e=>{
+  const now=Date.now();
+  if(now-last<38) return;
+  last=now;
+  const g=document.createElement('div');
+  g.className='glitter';
+  g.style.left=e.clientX+'px';
+  g.style.top=e.clientY+'px';
+  g.style.transform='translate(-50%,-50%)';
+  document.body.appendChild(g);
+  g.animate([{opacity:.9,transform:'translate(-50%,-50%) scale(1)'},{opacity:0,transform:'translate(-50%,-50%) scale(.1)'}],{duration:500,easing:'ease-out'});
+  setTimeout(()=>g.remove(),520);
+});
+</script>
+</body>
+</html>
